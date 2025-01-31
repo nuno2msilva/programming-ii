@@ -18,7 +18,7 @@ JavaScript | [Mozilla JavaScript Docs](https://developer.mozilla.org/en-US/docs/
 **Exercises**:
 1. Write a function `findDuplicates(arr)` that returns an array of duplicate elements.
 2. Create a flowchart for a thermostat system that adjusts temperature based on user input.
-3. Solve [Two Sum](https://leetcode.com/problems/two-sum/) using nested loops (O(n²)) and then optimize it using a `Map` (O(n)).
+3. S  m](https://leetcode.com/problems/two-sum/) using nested loops (O(n²)) and then optimize it using a `Map` (O(n)).
 4. Implement a `Student` class with properties (name, grades) and methods to calculate final grade.
 
 **Resources**:
