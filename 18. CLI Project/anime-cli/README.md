@@ -44,11 +44,11 @@ node index.js [name <anime> | genres <genre1/genre2> | season | watchlist | refr
 
 - **Search by name:**
   ```bash
-  node index.js name "Frieren"
+  node index.js name Frieren
   ```
 - **Search by genres:**
   ```bash
-  node index.js genres "Psychological/Horror"
+  node index.js genres Psychological/Horror
   ```
 - **List all genres:**
   ```bash
@@ -81,7 +81,7 @@ node index.js [name <anime> | genres <genre1/genre2> | season | watchlist | refr
 - Add anime to your watchlist with `y/n` prompts.
 
 ### 📌 Watchlist
-- Open directly to anime details with `--watchlist`.
+- Open directly to anime details with `watchlist`.
 - Navigate entries with `←/→`.
 - Delete entries with `d` (confirmation required).
 
