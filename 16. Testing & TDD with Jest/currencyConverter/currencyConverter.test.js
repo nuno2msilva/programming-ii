@@ -1,13 +1,34 @@
-import { convertUSDToEUR } from './currencyConverter.js';
-import { jest } from "jest";
+import { fetchExchangeRate } from './currencyConverter.js';
+import { fetchExchangeRate } from './api'; // Assume this is the path to the API module
 
-jest.mock('currencyConverter');
+jest.mock('./api', () => ({
+  fetchExchangeRate: jest.fn(),
+}));
 
-describe("Mocking Currency Converter Test Suite", () =>{
+describe('convertUSDToEUR', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-  test("Testing USD to EUR Conversion",() => {
-    const mockedRate = 0.85;      
-    let ammount = 1;
-          expect(convertUSDToEUR).toBe(1,5);
-  })
+  it('correctly converts USD to EUR using the exchange rate', async () => {
+    const mockRate = 0.85;
+    const usdAmount = 100;
+    const expectedEUR = usdAmount * mockRate;
+
+    fetchExchangeRate.mockResolvedValue(mockRate);
+
+    const result = await convertUSDToEUR(usdAmount);
+
+    expect(result).toBe(expectedEUR);
+    expect(fetchExchangeRate).toHaveBeenCalledTimes(1);
+  });
+
+  it('throws an error when the exchange rate API fails', async () => {
+    const errorMessage = 'Failed to fetch exchange rate';
+    
+    fetchExchangeRate.mockRejectedValue(new Error(errorMessage));
+1
+    await expect(convertUSDToEUR(100)).rejects.toThrow(errorMessage);
+    expect(fetchExchangeRate).toHaveBeenCalledTimes(1);
+  });
 });
